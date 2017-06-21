@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:fragment="head">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8"/>
+    <title>Edit Room</title>
+</head>
+<body>
+<nav class="navbar navbar-default" th:fragment="nav">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="login.html">Dave's List</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+               <li><a href="roomList.html">Room Listing</a></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<form th:action="@{/add}" th:object="${room}" method="post">
+    <div><label> Street Address: <input type="text" name="address" th:field="*{address}"/> </label></div>
+    <div><label> City: <input type="text" name="city" th:field="*{city}"/> </label></div>
+    <div><label> State: <input type="text" name="state" th:field="*{state}"/> </label></div>
+    <div><label> Price: <input type="text" name="price" th:field="*{price}"/> </label></div>
+    <div><label> Rules: <input type="text" name="rules" th:field="*{rules}"/> </label></div>
+    <div><label> Description: <input type="text" name="description" th:field="*{description}"/> </label></div>
+    <div><label> Cable (none/basic/premium): <input type="text" name="cable" th:field="*{cable}"/> </label></div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"  name="wifi" value="true" th:field="*{wifi}"/> Wifi:
+        </label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"  name="bathroom" value="true" th:field="*{bathroom}" /> Private Bathroom:
+        </label>
+    </div>
+    <div><input type="submit" value="Submit"/></div>
+</form>
+
+</body>
+</html>

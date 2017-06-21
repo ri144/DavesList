@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="edit :: head">
+    <meta charset="UTF-8"/>
+    <title>List of Rooms</title>
+</head>
+<body>
+<nav th:replace="edit :: nav"></nav>
+<table class="table table-hover">
+    <tr>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Price</th>
+        <th>Rented</th>
+    </tr>
+    <div th:each="room : ${values}">
+        <tr>
+            <td><a th:text = "${room.address}" th:href="@{'/roomdata/' + ${room.id}}"></a></td>
+            <td th:text = "${room.city}"></td>
+            <td th:text = "${room.state}"></td>
+            <td th:text = "${room.price}"></td>
+            <td th:text = "${room.rented}"></td>
+        </tr>
+    </div>
+</table>
+<a href="edit.html">Click here to add a room</a>
+
+
+</body>
+</html>
